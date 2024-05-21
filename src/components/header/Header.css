@@ -1,0 +1,35 @@
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: static;
+    top: 0;
+    padding: 0.5rem;
+    /* background-color: var(--color-backdrop); */
+    width: 100%;
+    align-items: center;
+}
+
+
+
+.header__customer-img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+.header__user-details {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header__hamburger-icon {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    margin: 0 auto;
+    font-size: 1.6rem;
+}
