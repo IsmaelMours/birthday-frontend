@@ -1,0 +1,47 @@
+/* GroupMembers.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.group-container {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* Add box shadow */
+}
+
+.group-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.group-owner {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.member-table th,
+.member-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.join-date {
+    font-style: italic;
+}

@@ -2,7 +2,6 @@
 import "./Sidebar.css";
 import { Outlet, NavLink } from "react-router-dom";
 import { LuLayoutDashboard } from "react-icons/lu";
-import { TfiCommentAlt } from "react-icons/tfi";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineContacts } from "react-icons/md";
 import { SlPicture } from "react-icons/sl";
@@ -11,8 +10,9 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoIosLogOut } from "react-icons/io";
 import { useAuth } from "../../security/auth/AuthContext";
 import { GiHamburgerMenu } from "react-icons/gi";
-
-
+import { HiUserGroup } from "react-icons/hi2";
+import { GiReceiveMoney } from "react-icons/gi";
+import { SiGroupon } from "react-icons/si";
 const Sidebar = () => {
   const { sidebarCollapsed, setSidebarCollapsed, logout, user } = useAuth();
 
@@ -25,13 +25,10 @@ const Sidebar = () => {
   };
 
 	return (
-		<>
-		
 		<div
 			className={`content__container ${sidebarCollapsed ? "collapsed" : ""}`}
 		>
 			<nav className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
-			
 				{sidebarCollapsed ? (
 					<div className='sidebar__logo'>
 						<GiHamburgerMenu
@@ -60,19 +57,17 @@ const Sidebar = () => {
 						</h3>
 					</NavLink>
 
-          <NavLink
-            to="/group"
-            style={{
-              display: user?.roles?.includes("ROLE_USER") ? "block" : "none",
-            }}
-          >
-            <h3>
-              <LuLayoutDashboard />
-              <span className={sidebarCollapsed ? "icon-only" : ""}>
-              Group
-              </span>
-            </h3>
-          </NavLink>
+					<NavLink
+						to='/group'
+						style={{
+							display: user?.roles?.includes("ROLE_USER") ? "block" : "none",
+						}}
+					>
+						<h3>
+							<SiGroupon />
+							<span className={sidebarCollapsed ? "icon-only" : ""}>Group</span>
+						</h3>
+					</NavLink>
 
 					<NavLink
 						to='/browse-professionals'
@@ -91,17 +86,15 @@ const Sidebar = () => {
 					</NavLink>
 
 					<NavLink
-						to='/issues'
+						to='/groupmembers'
 						style={{
-							display: user?.roles?.includes("ROLE_CUSTOMER")
-								? "block"
-								: "none",
+							display: user?.roles?.includes("ROLE_USER") ? "block" : "none",
 						}}
 					>
 						<h3>
-							<TfiCommentAlt />
+							<HiUserGroup />
 							<span className={sidebarCollapsed ? "icon-only" : ""}>
-								Log Issues
+								Members
 							</span>
 						</h3>
 					</NavLink>
@@ -129,20 +122,18 @@ const Sidebar = () => {
 								Messages
 							</span>
 						</h3>
-          </NavLink>
-          
+					</NavLink>
+
 					<NavLink
 						to='/jobrequest'
 						style={{
-							display: user?.roles?.includes("ROLE_SERVICE_PROVIDER")
-								? "block"
-								: "none",
+							display: user?.roles?.includes("ROLE_USER") ? "block" : "none",
 						}}
 					>
 						<h3>
-							<SlPicture />
+							<GiReceiveMoney />
 							<span className={sidebarCollapsed ? "icon-only" : ""}>
-								Job Request
+								Contribution
 							</span>
 						</h3>
 					</NavLink>
@@ -180,11 +171,7 @@ const Sidebar = () => {
 					<NavLink
 						to='/profile'
 						style={{
-							display:
-								user?.roles?.includes("ROLE_CUSTOMER") ||
-								user?.roles?.includes("ROLE_SERVICE_PROVIDER")
-									? "block"
-									: "none",
+							display: user?.roles?.includes("ROLE_USER") ? "block" : "none",
 						}}
 					>
 						<h3>
@@ -208,8 +195,7 @@ const Sidebar = () => {
 			<div className='content'>
 				<Outlet />
 			</div>
-			</div>
-		</>
+		</div>
 	);
 };
 

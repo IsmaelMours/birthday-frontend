@@ -14,6 +14,8 @@ import SignupForm from "./form/signup/SignupForm";
 import ProtectedRoute from "./security/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import GroupList from "./components/Group/GroupList";
+import GroupMembersComponent from "./components/groupmembers/GroupMembers";
+import JoinRequests from "./components/joinrequests/JoinRequests";
 
 function App({ children }) {
 	const router = createBrowserRouter([
@@ -36,7 +38,7 @@ function App({ children }) {
 			children: [
 				{
 					path: "/",
-					element: <Dashboard/>,
+					element: <Dashboard />,
 				},
 				{
 					path: "/",
@@ -44,7 +46,15 @@ function App({ children }) {
 				},
 				{
 					path: "/group",
-					element: <GroupList/>,
+					element: <GroupList />,
+				},
+				{
+					path: "/groupmembers",
+					element: <GroupMembersComponent />,
+				},
+				{
+					path: "/join-requests",
+					element: <JoinRequests/>
 				},
 
 				// {
